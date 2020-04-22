@@ -2,6 +2,7 @@ package cadastro;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
 
 import cadastro.exceptions.CaracterInvalidoException;
 import cadastro.exceptions.ECadastro;
@@ -14,7 +15,7 @@ public class RegistraUsuario {
 	private Collection<Usuario> ListaUsuariosCadastrados = new ArrayList<Usuario>();
 
 	public Collection<Usuario> getUsuariosCadastrados() {
-		return ListaUsuariosCadastrados;
+		return Collections.unmodifiableCollection(ListaUsuariosCadastrados);
 	}
 
 	public void AdicionarUsuario(Usuario usuarioEnviado) {
