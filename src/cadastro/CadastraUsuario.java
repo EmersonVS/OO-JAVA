@@ -4,7 +4,7 @@ import java.util.Collection;
 
 import usuario.Usuario;
 
-public class Cadastro {
+public class CadastraUsuario {
 	
 	RegistraUsuario RegUser = new RegistraUsuario();
 	

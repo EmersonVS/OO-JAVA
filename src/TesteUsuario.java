@@ -1,10 +1,10 @@
-import cadastro.Cadastro;
+import cadastro.CadastraUsuario;
 
 public class TesteUsuario {
 
 	public static void main(String[] args) {
 		
-		Cadastro AuxCadastro = new Cadastro();
+		CadastraUsuario AuxCadastro = new CadastraUsuario();
 		
 		AuxCadastro.Cadastrar("GuilhermeAAR", "paocarnequeijopaoquarteirao");
 		

@@ -6,7 +6,7 @@ import java.util.Collections;
 
 import personagem.habilidades.Habilidade;
 
-abstract class Classe implements IClasse{
+public abstract class Classe implements IClasse{
 
 	private Collection<Habilidade> Habilidades = new ArrayList<Habilidade>();
 
