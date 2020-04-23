@@ -1,23 +1,18 @@
-import personagem.classes.Guerreiro;
+import cadastro.CadastraPersonagem;
+import personagem.Personagem;
 
 public class TestePersonagem {
 
 	public static void main(String[] args) {
 		
-		Guerreiro Classe1 = new Guerreiro();
-		Guerreiro Classe2 = new Guerreiro();
+		CadastraPersonagem AuxCadastro = new CadastraPersonagem();
 		
-		Classe1.AdicionarHabilidade("Soco", 1, 2);
-		Classe1.AdicionarHabilidade("Pontapé", 1, 4);
-		Classe1.AdicionarHabilidade("Esquiva", 1, 3);
+		AuxCadastro.Cadastrar("Aragorn", 1, "Guerreiro");
+		AuxCadastro.Cadastrar("Legolas", 1, "Arqueiro");
+		AuxCadastro.Cadastrar("Gandalf", 1, "Mago");
 		
-		Classe2.AdicionarHabilidade("Ataque Espada", 1, 2);
-		Classe2.AdicionarHabilidade("Ataque Escudo", 1, 4);
-		Classe2.AdicionarHabilidade("Esquiva", 1, 3);
-		
-		Classe2.EvoluirHabilidade(2, 1);
-		
-		System.out.println(Classe1);
-		System.out.println(Classe2);
+		for (Personagem Personagem : AuxCadastro.ListaDePersonagens()) {
+			System.out.println(Personagem);
+		}
 	}
 }
