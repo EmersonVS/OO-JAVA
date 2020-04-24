@@ -2,9 +2,12 @@ package cadastro;
 
 import java.util.Collection;
 
+import cadastro.exceptions.AtributoNegativoException;
 import cadastro.exceptions.ClasseInvalidaException;
 import cadastro.exceptions.ECadastro;
+import cadastro.exceptions.ValorDeAtributoInvalidoException;
 import personagem.Personagem;
+import personagem.atributos.Atributos;
 import personagem.classes.Arqueiro;
 import personagem.classes.Classe;
 import personagem.classes.Guerreiro;
@@ -12,11 +15,12 @@ import personagem.classes.Mago;
 
 public class CadastraPersonagem {
 
-	RegistraPersonagem RegPerso = new RegistraPersonagem();
+	private RegistraPersonagem RegPerso = new RegistraPersonagem();
 
-	public void Cadastrar(String nome, int nivel, String classe) {
+	public void Cadastrar(String nome, String classe, int nivelForca, int nivelInteligencia, int nivelDestreza) {
 		try {
-			Personagem NovoPersonagem = new Personagem(nome, nivel, DefinirClasse(classe));
+			Personagem NovoPersonagem = new Personagem(nome, 1, DefinirClasse(classe),
+					DefinirAtributos(nivelForca, nivelInteligencia, nivelDestreza));
 			RegPerso.AdicionarPersonagem(NovoPersonagem);
 		} catch (ECadastro ex) {
 			System.out.println(ex.getMessage());
@@ -38,5 +42,16 @@ public class CadastraPersonagem {
 			return new Mago();
 		}
 		throw new ClasseInvalidaException(classe);
+	}
+
+	private Atributos DefinirAtributos(int nivelForcaEnviado, int nivelInteligenciaEnviado, int nivelDestrezaEnviado)
+			throws ValorDeAtributoInvalidoException, AtributoNegativoException {
+		if (nivelForcaEnviado < 0 || nivelInteligenciaEnviado < 0 || nivelDestrezaEnviado < 0) {
+			throw new AtributoNegativoException();
+		} else if (nivelForcaEnviado + nivelInteligenciaEnviado + nivelDestrezaEnviado != 10) {
+			throw new ValorDeAtributoInvalidoException(
+					nivelForcaEnviado + nivelInteligenciaEnviado + nivelDestrezaEnviado);
+		}
+		return new Atributos(nivelForcaEnviado, nivelInteligenciaEnviado, nivelDestrezaEnviado);
 	}
 }

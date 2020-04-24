@@ -6,6 +6,7 @@ import java.util.Collections;
 
 import cadastro.exceptions.ECadastro;
 import cadastro.exceptions.NomeDePersonagemEmUsoException;
+import cadastro.exceptions.TamanhoInvalidoExcpetion;
 import personagem.Personagem;
 
 public class RegistraPersonagem {
@@ -17,7 +18,7 @@ public class RegistraPersonagem {
 
 	public void AdicionarPersonagem(Personagem personagemEnviado) {
 		try {
-			if (validarUsoDeNome(personagemEnviado)) {
+			if (validarUsoDeNome(personagemEnviado) && validarTamanhoDoNome(personagemEnviado)) {
 				ListaPersonagemCadastrados.add(personagemEnviado);
 			}
 		} catch (ECadastro ex) {
@@ -32,6 +33,13 @@ public class RegistraPersonagem {
 				throw new NomeDePersonagemEmUsoException(personagemEnviado.getNome());
 			}
 		}
+		return true;
+	}
+	
+	private boolean validarTamanhoDoNome(Personagem personagemEnviado) throws TamanhoInvalidoExcpetion {
+		if (personagemEnviado.getNome().length() < 1 || personagemEnviado.getNome().equals("")
+				|| personagemEnviado.getNome().equals(" "))
+			throw new TamanhoInvalidoExcpetion("Nome do Personagem");
 		return true;
 	}
 }

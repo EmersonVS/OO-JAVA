@@ -6,8 +6,9 @@ import java.util.Collections;
 
 import personagem.habilidades.Habilidade;
 
-public abstract class Classe implements IClasse{
+public abstract class Classe {
 
+	protected String Nome;
 	private Collection<Habilidade> Habilidades = new ArrayList<Habilidade>();
 
 	public void AdicionarHabilidade(String nome, int nivel, double cooldown) {
@@ -23,5 +24,15 @@ public abstract class Classe implements IClasse{
 		return Collections.unmodifiableCollection(Habilidades);
 	}
 	
-	public abstract String toString();
+	public String getNome() {
+		return Nome;
+	}
+	
+	protected void setNome(String nome) {
+		this.Nome = nome;
+	}
+	
+	public String toString() {
+		return String.format("[%s | Habilidades - %s]",getNome(), this.getHabilidades());
+	}
 }
