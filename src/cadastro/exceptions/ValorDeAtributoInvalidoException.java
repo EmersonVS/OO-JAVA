@@ -2,6 +2,8 @@ package cadastro.exceptions;
 
 public class ValorDeAtributoInvalidoException extends ECadastro {
 
+	private static final long serialVersionUID = 1L;
+
 	public ValorDeAtributoInvalidoException() {
 		super("Valor dos atributos enviados é inválido.");
 	}

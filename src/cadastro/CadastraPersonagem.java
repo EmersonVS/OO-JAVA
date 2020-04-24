@@ -14,7 +14,7 @@ import personagem.classes.Mago;
 
 public class CadastraPersonagem {
 
-	RegistraPersonagem RegPerso = new RegistraPersonagem();
+	private RegistraPersonagem RegPerso = new RegistraPersonagem();
 
 	public void Cadastrar(String nome, String classe, int nivelForca, int nivelInteligencia, int nivelDestreza) {
 		try {
