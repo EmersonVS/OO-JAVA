@@ -14,9 +14,9 @@ public class CadastraPersonagem {
 
 	RegistraPersonagem RegPerso = new RegistraPersonagem();
 
-	public void Cadastrar(String nome, int nivel, String classe) {
+	public void Cadastrar(String nome, String classe) {
 		try {
-			Personagem NovoPersonagem = new Personagem(nome, nivel, DefinirClasse(classe));
+			Personagem NovoPersonagem = new Personagem(nome, 1, DefinirClasse(classe));
 			RegPerso.AdicionarPersonagem(NovoPersonagem);
 		} catch (ECadastro ex) {
 			System.out.println(ex.getMessage());

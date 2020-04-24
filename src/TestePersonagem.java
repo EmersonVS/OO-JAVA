@@ -7,9 +7,9 @@ public class TestePersonagem {
 		
 		CadastraPersonagem AuxCadastro = new CadastraPersonagem();
 		
-		AuxCadastro.Cadastrar("Aragorn", 1, "Guerreiro");
-		AuxCadastro.Cadastrar("Legolas", 1, "Arqueiro");
-		AuxCadastro.Cadastrar("Gandalf", 1, "Mago");
+		AuxCadastro.Cadastrar("Aragorn", "Guerreiro");
+		AuxCadastro.Cadastrar("Legolas", "Arqueiro");
+		AuxCadastro.Cadastrar("Gandalf", "Mago");
 		
 		for (Personagem Personagem : AuxCadastro.ListaDePersonagens()) {
 			System.out.println(Personagem);
