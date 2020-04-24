@@ -11,11 +11,11 @@ public class Inventario {
 
 	private Collection<Item> Inventario = new ArrayList<Item>();
 
-	public Collection<Item> getInvetanrio() {
+	public Collection<Item> getInventario() {
 		return Collections.unmodifiableCollection(Inventario);
 	}
 
-	public void AdicionarItemNoInvetario(Item itemEnviado) {
+	public void AdicionarItemNoInventario(Item itemEnviado) {
 		if (itemEnviado.getTipo() != "Equipamento" && Inventario.contains(itemEnviado)) {
 			for (Item item : Inventario) {
 				if (item.equals(itemEnviado)) {
@@ -27,7 +27,7 @@ public class Inventario {
 		}
 	}
 
-	public void RemoverItemNoInvetario(Item itemEnviado){
+	public void RemoverItemNoInventario(Item itemEnviado) {
 		try {
 			if (Inventario.contains(itemEnviado))
 				Inventario.remove(itemEnviado);
@@ -36,5 +36,10 @@ public class Inventario {
 		} catch (IException ex) {
 			System.out.println(ex.getMessage());
 		}
+	}
+
+	@Override
+	public String toString() {
+		return String.format(" | Itens - %s", getInventario());
 	}
 }
