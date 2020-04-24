@@ -36,4 +36,8 @@ public class Personagem {
 	public String toString() {
 		return String.format("[Personagem - %s | Nivel - %d | Classe - %s | Atributos - %s" , getNome(), getNivel(), getClasse(), getAtributos());
 	}
+	
+	public boolean equals(String nome) {
+		return this.getNome().equals(nome);
+	}
 }
