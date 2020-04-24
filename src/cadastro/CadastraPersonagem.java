@@ -2,6 +2,7 @@ package cadastro;
 
 import java.util.Collection;
 
+import cadastro.exceptions.AtributoNegativoException;
 import cadastro.exceptions.ClasseInvalidaException;
 import cadastro.exceptions.ECadastro;
 import cadastro.exceptions.ValorDeAtributoInvalidoException;
@@ -18,7 +19,8 @@ public class CadastraPersonagem {
 
 	public void Cadastrar(String nome, String classe, int nivelForca, int nivelInteligencia, int nivelDestreza) {
 		try {
-			Personagem NovoPersonagem = new Personagem(nome, 1, DefinirClasse(classe), DefinirAtributos(nivelForca, nivelInteligencia, nivelDestreza));
+			Personagem NovoPersonagem = new Personagem(nome, 1, DefinirClasse(classe),
+					DefinirAtributos(nivelForca, nivelInteligencia, nivelDestreza));
 			RegPerso.AdicionarPersonagem(NovoPersonagem);
 		} catch (ECadastro ex) {
 			System.out.println(ex.getMessage());
@@ -41,11 +43,15 @@ public class CadastraPersonagem {
 		}
 		throw new ClasseInvalidaException(classe);
 	}
-	
-	private Atributos DefinirAtributos(int nivelForcaEnviado, int nivelInteligenciaEnviado, int nivelDestrezaEnviado) throws ValorDeAtributoInvalidoException {
-		if(nivelForcaEnviado + nivelInteligenciaEnviado + nivelDestrezaEnviado != 10) {
-			throw new ValorDeAtributoInvalidoException(nivelForcaEnviado + nivelInteligenciaEnviado + nivelDestrezaEnviado);
+
+	private Atributos DefinirAtributos(int nivelForcaEnviado, int nivelInteligenciaEnviado, int nivelDestrezaEnviado)
+			throws ValorDeAtributoInvalidoException, AtributoNegativoException {
+		if (nivelForcaEnviado < 0 || nivelInteligenciaEnviado < 0 || nivelDestrezaEnviado < 0) {
+			throw new AtributoNegativoException();
+		} else if (nivelForcaEnviado + nivelInteligenciaEnviado + nivelDestrezaEnviado != 10) {
+			throw new ValorDeAtributoInvalidoException(
+					nivelForcaEnviado + nivelInteligenciaEnviado + nivelDestrezaEnviado);
 		}
-		return new Atributos(nivelForcaEnviado,nivelInteligenciaEnviado,nivelDestrezaEnviado);
+		return new Atributos(nivelForcaEnviado, nivelInteligenciaEnviado, nivelDestrezaEnviado);
 	}
 }

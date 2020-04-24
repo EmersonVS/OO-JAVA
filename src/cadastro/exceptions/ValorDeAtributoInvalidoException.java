@@ -9,7 +9,7 @@ public class ValorDeAtributoInvalidoException extends ECadastro {
 	}
 
 	public ValorDeAtributoInvalidoException(int msg) {
-		 super(String.format("Valor dos atributos enviados deve ser igual a 10. Valor enviado é de %d.", msg));
+		 super(String.format("Valor da somatória dos atributos enviados deve ser igual a 10. Valor enviado é de %d.", msg));
 	}
 	
 }

@@ -4,16 +4,6 @@ public class Destreza extends Atributo {
 
 	public Destreza(int nivel) {
 		super(nivel);
+		setNome("Destreza");
 	}
-
-	@Override
-	public String toString() {
-		return String.format("[%s | Nivel %d]", getNome(), getNivel());
-	}
-
-	@Override
-	public String getNome() {
-		return "Destreza";
-	}
-
 }

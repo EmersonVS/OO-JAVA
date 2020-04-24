@@ -10,7 +10,7 @@ public class TestePersonagem {
 
 		AuxCadastro.Cadastrar("Aragorn", "Guerreiro", 2, 3, 5);
 		AuxCadastro.Cadastrar("Gandalf", "Mago", 3, 2, 5);
-		AuxCadastro.Cadastrar("Legolas", "Arqueiro", 6, -5, 0);
+		AuxCadastro.Cadastrar("Legolas", "Arqueiro", 0, 5, 5);
 
 		for (Personagem Personagem : AuxCadastro.ListaDePersonagens()) {
 			if (Personagem.equals("Aragorn")) {

@@ -25,7 +25,7 @@ public class Atributos {
 	}
 
 	public void evouluirForca(int nivel) {
-		getForca().subirNivel(1);
+		getForca().subirNivel(nivel);
 	}
 
 	public void evoluirInteligencia(int nivel) {
