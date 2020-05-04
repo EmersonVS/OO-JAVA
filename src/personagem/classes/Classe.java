@@ -33,6 +33,6 @@ public abstract class Classe {
 	}
 	
 	public String toString() {
-		return String.format("[%s | Habilidades - %s]",getNome(), this.getHabilidades());
+		return String.format("\"%s\", \"Habilidades\": %s",getNome(), this.getHabilidades());
 	}
 }

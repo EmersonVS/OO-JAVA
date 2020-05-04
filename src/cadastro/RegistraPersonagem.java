@@ -16,15 +16,10 @@ public class RegistraPersonagem {
 		return Collections.unmodifiableCollection(ListaPersonagemCadastrados);
 	}
 
-	public void AdicionarPersonagem(Personagem personagemEnviado) {
-		try {
-			if (validarUsoDeNome(personagemEnviado) && validarTamanhoDoNome(personagemEnviado)) {
-				ListaPersonagemCadastrados.add(personagemEnviado);
-			}
-		} catch (ECadastro ex) {
-			System.out.println(ex.getMessage());
+	public void AdicionarPersonagem(Personagem personagemEnviado) throws NomeDePersonagemEmUsoException, TamanhoInvalidoExcpetion {
+		if (validarUsoDeNome(personagemEnviado) && validarTamanhoDoNome(personagemEnviado)) {
+			ListaPersonagemCadastrados.add(personagemEnviado);
 		}
-
 	}
 
 	private boolean validarUsoDeNome(Personagem personagemEnviado) throws NomeDePersonagemEmUsoException {
@@ -35,7 +30,7 @@ public class RegistraPersonagem {
 		}
 		return true;
 	}
-	
+
 	private boolean validarTamanhoDoNome(Personagem personagemEnviado) throws TamanhoInvalidoExcpetion {
 		if (personagemEnviado.getNome().length() < 1 || personagemEnviado.getNome().equals("")
 				|| personagemEnviado.getNome().equals(" "))

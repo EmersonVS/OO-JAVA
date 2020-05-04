@@ -18,7 +18,7 @@ public abstract class Atributo {
 	}
 
 	public String toString() {
-		return String.format("[%s | Nivel %d]", getNome(), getNivel());
+		return String.format("\"%s\": %d", getNome(), getNivel());
 	}
 
 	protected String getNome() {

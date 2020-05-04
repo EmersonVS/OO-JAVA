@@ -33,7 +33,7 @@ public abstract class Item {
 
 	@Override
 	public String toString() {
-		return String.format("[Nome - %s | Tipo - %s | Quantidade - %d]", getNome(), getTipo(), getQuantidade());
+		return String.format("{\"Nome\": \"%s\", \"Tipo\": \"%s\", \"Quantidade\": %d}", getNome(), getTipo(), getQuantidade());
 	}
 
 	@Override

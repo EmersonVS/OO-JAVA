@@ -40,6 +40,6 @@ public class Inventario {
 
 	@Override
 	public String toString() {
-		return String.format(" | Itens - %s", getInventario());
+		return String.format("%s", getInventario());
 	}
 }

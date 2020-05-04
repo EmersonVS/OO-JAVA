@@ -41,9 +41,9 @@ public class Personagem {
 	
 	@Override
 	public String toString() {
-		return String.format("[Personagem - %s | Nivel - %d | Classe - %s | Atributos - %s | Inventario - %s]" , getNome(), getNivel(), getClasse(), getAtributos(), getInventario());
+		return String.format("{\"Personagem\": \"%s\", \"Nivel\": %d, \"Classe\": %s, \"Atributos\": %s, \"Inventario\": %s}" , getNome(), getNivel(), getClasse(), getAtributos(), getInventario());
 	}
-	
+
 	public boolean equals(String nome) {
 		return this.getNome().equals(nome);
 	}

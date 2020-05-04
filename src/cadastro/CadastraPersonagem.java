@@ -17,13 +17,14 @@ public class CadastraPersonagem {
 
 	private RegistraPersonagem RegPerso = new RegistraPersonagem();
 
-	public void Cadastrar(String nome, String classe, int nivelForca, int nivelInteligencia, int nivelDestreza) {
+	public void Cadastrar(String nome, String classe, int nivelForca, int nivelInteligencia, int nivelDestreza) throws ECadastro {
 		try {
 			Personagem NovoPersonagem = new Personagem(nome, 1, DefinirClasse(classe),
 					DefinirAtributos(nivelForca, nivelInteligencia, nivelDestreza));
 			RegPerso.AdicionarPersonagem(NovoPersonagem);
 		} catch (ECadastro ex) {
 			System.out.println(ex.getMessage());
+			throw ex;
 		}
 
 	}

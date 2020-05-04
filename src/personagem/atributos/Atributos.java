@@ -38,6 +38,6 @@ public class Atributos {
 	
 	@Override
 	public String toString() {
-		return String.format("[%s | %s | %s]", getForca(), getInteligencia(), getDestreza());
+		return String.format("{%s, %s, %s}", getForca(), getInteligencia(), getDestreza());
 	}
 }
